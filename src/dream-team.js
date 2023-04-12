@@ -14,7 +14,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function createDreamTeam(arr) {
-  //throw new NotImplementedError('Not implemented');
+  throw new NotImplementedError('Not implemented');
   const names = arr.filter(val=> isNaN(val));
     const callBack = (val) =>{
         return val.slice(0,1).toUpperCase();

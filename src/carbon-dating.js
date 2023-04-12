@@ -21,7 +21,7 @@ const HALF_LIFE_PERIOD = 5730;
     
 
 function dateSample(sampleActivity) {
-  throw new NotImplementedError('Not implemented');
+  //throw new NotImplementedError('Not implemented');
   const MODERN_ACTIVITY = 15;
   const HALF_LIFE_PERIOD = 5730;
   if (typeof sampleActivity !== 'string' || isNaN(sampleActivity) || sampleActivity <= 0 || sampleActivity > MODERN_ACTIVITY) {
