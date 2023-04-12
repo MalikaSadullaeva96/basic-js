@@ -15,14 +15,18 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function createDreamTeam(arr) {
   //throw new NotImplementedError('Not implemented');
-  const names = arr.filter(val=> isNaN(val));
-    const callBack = (val) =>{
-        return val.slice(0,1).toUpperCase();
+    if (!Array.isArray(arr)) {
+      return false;
     }
+
+    const names = arr.filter(val => typeof val === 'string');
+    const callBack = (val) => {
+      return val.trim().slice(0, 1).toUpperCase();
+    };
     const nickName = names.map(callBack);
-    let answ = nickName.sort().join('');
+    const answ = nickName.sort().join('');
     return answ;
-}
+  }
 
 module.exports = {
   createDreamTeam
