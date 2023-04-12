@@ -20,10 +20,8 @@ function transform(arr) {
   const transformedArr = [];
   for (let i = 0; i < arr.length; i++) {
     const current = arr[i];
-    if(transformedArr.length>0){
-      const prev = transformedArr[transformedArr.length - 1];
-    }
-    
+    const prev = transformedArr[transformedArr.length - 1];
+
     switch (current) {
       case "--discard-next":
         i++;
