@@ -23,7 +23,6 @@ function transform(arr) {
   for (let i = 0; i < arr.length; i++) {
     const current = arr[i];
     const prev = transformedArr[transformedArr.length - 1];
-    console.log('prev ' + prev);
 
     switch (current) {
       case "--discard-next":
@@ -31,7 +30,7 @@ function transform(arr) {
         break;
 
       case "--discard-prev":
-        if (prev !== undefined && prev !== null) {
+        if (i > 0 && prev !== undefined && prev !== null) {
           transformedArr.pop();
         }
         break;
@@ -49,7 +48,6 @@ function transform(arr) {
         break;
 
       default:
-        console.log(current);
         transformedArr.push(current);
     }
   }
