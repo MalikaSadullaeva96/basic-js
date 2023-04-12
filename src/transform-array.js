@@ -17,10 +17,13 @@ function transform(arr) {
   if (!Array.isArray(arr)) {
     throw new Error("'arr' parameter must be an instance of the Array!");
   }
+
   const transformedArr = [];
+
   for (let i = 0; i < arr.length; i++) {
     const current = arr[i];
     const prev = transformedArr[transformedArr.length - 1];
+    console.log('prev ' + prev);
 
     switch (current) {
       case "--discard-next":
@@ -46,6 +49,7 @@ function transform(arr) {
         break;
 
       default:
+        console.log(current);
         transformedArr.push(current);
     }
   }
