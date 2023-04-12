@@ -20,7 +20,8 @@ function createDreamTeam(arr) {
         return val.slice(0,1).toUpperCase();
     }
     const nickName = names.map(callBack);
-    return nickName.sort().join('');
+    let answ = nickName.sort().join('');
+    return answ;
 }
 
 module.exports = {
