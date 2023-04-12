@@ -20,33 +20,36 @@ function transform(arr) {
   const transformedArr = [];
   for (let i = 0; i < arr.length; i++) {
     const current = arr[i];
-    const prev = transformedArr[transformedArr.length - 1];
 
-    switch (current) {
-      case "--discard-next":
-        i++;
-        break;
+    if (typeof current === 'string') {
+      switch (current) {
+        case "--discard-next":
+          i++;
+          break;
 
-      case "--discard-prev":
-        if (prev !== undefined && prev !== null) {
-          transformedArr.pop();
-        }
-        break;
+        case "--discard-prev":
+          if (transformedArr.length > 0) {
+            transformedArr.pop();
+          }
+          break;
 
-      case "--double-next":
-        if (i < arr.length - 1) {
-          transformedArr.push(arr[i + 1]);
-        }
-        break;
+        case "--double-next":
+          if (i < arr.length - 1) {
+            transformedArr.push(arr[i + 1]);
+          }
+          break;
 
-      case "--double-prev":
-        if (i > 0 && prev !== undefined && prev !== null) {
-          transformedArr.push(prev);
-        }
-        break;
+        case "--double-prev":
+          if (i > 0 && transformedArr.length > 0) {
+            transformedArr.push(transformedArr[transformedArr.length - 1]);
+          }
+          break;
 
-      default:
-        transformedArr.push(current);
+        default:
+          throw new Error("Invalid control sequence!");
+      }
+    } else {
+      transformedArr.push(current);
     }
   }
   return transformedArr;
