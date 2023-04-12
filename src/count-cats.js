@@ -14,9 +14,19 @@ const { NotImplementedError } = require('../extensions/index.js');
  * ]) => 3`
  *
  */
-function countCats(/* matrix */) {
+function countCats(arr) {
   throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+  let oneDimArr = arr.flat();
+    let str ='^^';
+
+    const callBack = (acc,val) =>{
+        if(val === str){
+            acc +=1;
+        }
+        return acc;
+    }
+    const answ = oneDimArr.reduce(callBack,0);
+    return answ;
 }
 
 module.exports = {
