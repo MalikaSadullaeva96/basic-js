@@ -15,7 +15,6 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function countCats(arr) {
-  throw new NotImplementedError('Not implemented');
   let oneDimArr = arr.flat();
     let str ='^^';
 
